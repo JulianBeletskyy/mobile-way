@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, Text, FlatList, Pressable } from 'react-native'
 import FastImage from 'react-native-fast-image'
 
-import { getCategories } from '../api'
+import { getStoresGroups } from '../api'
 
 import SearchInput from '../components/SearchInput'
 
-const StoreScreen = ({navigation}) => {
+const StoreGroupsScreen = ({navigation}) => {
 
-	const [stores, setStores] = useState([])
+	const [groups, setGroups] = useState([])
 
 	useEffect(() => {
-		getCategories().then(res => {
+		getStoresGroups().then(res => {
 			if (res) {
-				setStores(res)
+				setGroups(res)
 			}
 		})
 		navigation.setOptions({
@@ -25,13 +25,13 @@ const StoreScreen = ({navigation}) => {
 		})
 	}, [])
 
-	const handlePressCategory = category => () => {
-		console.log(category)
+	const handlePressGroup = group => () => {
+		navigation.navigate('Stores', {title: group.name, groupId: group.id})
 	}
 
-	const renderStore = ({item, index}) => {
+	const renderGroup = ({item, index}) => {
 		return (
-			<Pressable style={{height: 60, flex: 1, marginBottom: 15, paddingLeft: 10, paddingRight: 10}} onPress={handlePressCategory(item)}>
+			<Pressable style={{height: 60, flex: 1, marginBottom: 15, paddingLeft: 10, paddingRight: 10}} onPress={handlePressGroup(item)}>
 				<View style={{backgroundColor: '#fff', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', borderRadius: 10}}>
 					<Text>{item.name}</Text>
 				</View>
@@ -43,9 +43,9 @@ const StoreScreen = ({navigation}) => {
 		<View style={styles.container}>
 			<Text style={{textAlign: 'center', marginBottom: 15}}>Stores</Text>
 			<FlatList
-				data={stores}
+				data={groups}
 				numColumns={2}
-				renderItem={renderStore} />
+				renderItem={renderGroup} />
 		</View>
 	)
 }
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default StoreScreen
+export default StoreGroupsScreen

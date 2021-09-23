@@ -1,0 +1,1 @@
+export const DOMAIN = `https://id4102.thestagingdomain.com`

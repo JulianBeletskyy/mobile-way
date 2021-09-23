@@ -7,9 +7,10 @@ import { CommonActions } from '@react-navigation/native'
 import TabBar from '../components/TabBar'
 import SearchInput from '../components/SearchInput'
 
+import StoreStack from './StoreStack'
+
 import HomeScreen from '../screens/Home'
 import MapScreen from '../screens/Map'
-import StoreScreen from '../screens/Store'
 import CalendarScreen from '../screens/Calendar'
 import ProfileScreen from '../screens/Profile'
 
@@ -57,8 +58,8 @@ const TabStack = ({navigation, route}) => {
       	name="Map"
       	component={MapScreen} />
       <Tab.Screen
-      	name="Store"
-      	component={StoreScreen} />
+      	name="StoreStack"
+      	component={StoreStack} />
       <Tab.Screen
       	name="Calendar"
       	component={CalendarScreen} />

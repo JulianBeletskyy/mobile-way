@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, Text, useWindowDimensions, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, useWindowDimensions, ScrollView, Alert } from 'react-native'
 import FastImage from 'react-native-fast-image'
+import { useIsFocused } from '@react-navigation/native'
 
 import SearchInput from '../components/SearchInput'
 
 const image = require('../../assets/img/store_layout.png')
 
-const MapScreen = ({navigation}) => {
+const MapScreen = ({navigation, route}) => {
 	const { width, height } = useWindowDimensions()
+	const isFocused = useIsFocused()
 
 	useEffect(() => {
 		navigation.setOptions({
@@ -18,6 +20,13 @@ const MapScreen = ({navigation}) => {
 			}
 		})
 	}, [])
+
+	useEffect(() => {
+		if (isFocused && route.params?.store) {
+			const { store } = route.params
+			Alert.alert(store.title)
+		}
+	}, [isFocused, route.params])
 
 	return (
 		<View style={styles.container}>

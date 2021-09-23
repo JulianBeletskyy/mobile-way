@@ -13,7 +13,7 @@ const settings = {
 		title: 'Map',
 		icon: MapIcon,
 	},
-	Store: {
+	StoreStack: {
 		title: 'Store',
 		icon: StoreIcon,
 	},
