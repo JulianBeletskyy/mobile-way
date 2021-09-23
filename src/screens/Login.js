@@ -8,12 +8,17 @@ const LoginScreen = ({navigation}) => {
 
 	useEffect(() => {
 		navigation.dispatch(state => {
-      const routes = state.routes.filter(r => r.name !== 'Splash')
+      const routes = state.routes.filter(r => r.name !== 'Splash' && r.name !== 'TabStack')
       const diff = state.routes.length - routes.length
       return CommonActions.reset({...state, routes, index: state.index - diff})
     })
 	}, [])
-	
+
+	const handleLogin = () => {
+		console.log('handle login')
+		navigation.navigate('TabStack')
+	}
+
 	return (
 		<View style={[styles.container, {paddingBottom: insets.bottom}]}>
 			<View style={{flex: 1, justifyContent: 'center'}}>
@@ -26,7 +31,7 @@ const LoginScreen = ({navigation}) => {
 					<TextInput style={styles.input} />
 				</View>
 			</View>
-			<Pressable style={styles.button} onPress={() => navigation.navigate('TabStack')}>
+			<Pressable style={styles.button} onPress={handleLogin}>
 				<Text>Login</Text>
 			</Pressable>
 			<Text style={{textAlign: 'center'}} onPress={() => navigation.navigate('SignUp')}>Registration</Text>

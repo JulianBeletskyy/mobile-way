@@ -28,7 +28,7 @@ const RootStack = ({navigation}) => {
       	<Stack.Screen
 	        name="Login"
 	        component={LoginScreen}
-	        options={{title: 'Login'}} />
+	        options={{title: 'Login', headerLeft: null}} />
 	      <Stack.Screen
 	        name="SignUp"
 	        component={SignUpScreen}

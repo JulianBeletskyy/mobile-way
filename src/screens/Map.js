@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, StyleSheet, Text, useWindowDimensions, ScrollView } from 'react-native'
+import FastImage from 'react-native-fast-image'
 
 import SearchInput from '../components/SearchInput'
 
+const image = require('../../assets/img/store_layout.png')
+
 const MapScreen = ({navigation}) => {
-	
+	const { width, height } = useWindowDimensions()
+
 	useEffect(() => {
 		navigation.setOptions({
 			headerRight: () => {
@@ -17,7 +21,7 @@ const MapScreen = ({navigation}) => {
 
 	return (
 		<View style={styles.container}>
-			<Text>MapScreen</Text>
+			<FastImage source={image} style={{flex: 1}} />
 		</View>
 	)
 }
