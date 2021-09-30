@@ -20,11 +20,10 @@ const LoginScreen = ({navigation}) => {
 	}
 
 	const facebookAuth = () => {
-		LoginManager.logInWithPermissions(['email']).then(({isCancelled}) => {
+		LoginManager.logInWithPermissions(['email']).then(({isCancelled, ...rest}) => {
       if (!isCancelled) {
       	Profile.getCurrentProfile().then(profile => {
-      		console.log(profile)
-      		Alert.alert(`${profile.firstName} ${profile.lastName}`)
+      		Alert.alert(profile.name)
       		onSuccessLogin()
       	})
       }

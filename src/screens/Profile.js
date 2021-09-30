@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text, Pressable } from 'react-native'
 import { useDispatch } from 'react-redux'
+import { LoginManager } from 'react-native-fbsdk-next'
 
 import { setAppKey } from '../actions/app'
 
@@ -8,6 +9,7 @@ const ProfileScreen = ({navigation}) => {
 	const dispatch = useDispatch()
 
 	const logout = () => {
+		LoginManager.logOut()
 		dispatch(setAppKey('isAuth', false))
 	}
 
