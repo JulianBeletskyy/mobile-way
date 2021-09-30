@@ -1,22 +1,36 @@
 import React, { useEffect } from 'react'
-import { View, StyleSheet, Text, TextInput, Pressable } from 'react-native'
+import { View, StyleSheet, Text, TextInput, Pressable, Alert } from 'react-native'
 import { CommonActions } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { LoginManager, Profile } from 'react-native-fbsdk-next'
+import { useDispatch } from 'react-redux'
+
+import { setAppKey } from '../actions/app'
 
 const LoginScreen = ({navigation}) => {
 	const insets = useSafeAreaInsets()
+	const dispatch = useDispatch()
 
-	useEffect(() => {
-		navigation.dispatch(state => {
-      const routes = state.routes.filter(r => r.name !== 'Splash' && r.name !== 'TabStack')
-      const diff = state.routes.length - routes.length
-      return CommonActions.reset({...state, routes, index: state.index - diff})
-    })
-	}, [])
+	const onSuccessLogin = () => {
+		dispatch(setAppKey('isAuth', true))
+	}
 
 	const handleLogin = () => {
-		console.log('handle login')
-		navigation.navigate('TabStack')
+		onSuccessLogin()
+	}
+
+	const facebookAuth = () => {
+		LoginManager.logInWithPermissions(['email']).then(({isCancelled}) => {
+      if (!isCancelled) {
+      	Profile.getCurrentProfile().then(profile => {
+      		console.log(profile)
+      		Alert.alert(`${profile.firstName} ${profile.lastName}`)
+      		onSuccessLogin()
+      	})
+      }
+    }).catch(error => {
+      console.log(error)
+    })
 	}
 
 	return (
@@ -31,6 +45,9 @@ const LoginScreen = ({navigation}) => {
 					<TextInput style={styles.input} />
 				</View>
 			</View>
+			<Pressable style={styles.button} onPress={facebookAuth}>
+				<Text>Facebook</Text>
+			</Pressable>
 			<Pressable style={styles.button} onPress={handleLogin}>
 				<Text>Login</Text>
 			</Pressable>

@@ -1,10 +1,19 @@
 import React from 'react'
 import { View, StyleSheet, Text, Pressable } from 'react-native'
+import { useDispatch } from 'react-redux'
+
+import { setAppKey } from '../actions/app'
 
 const ProfileScreen = ({navigation}) => {
+	const dispatch = useDispatch()
+
+	const logout = () => {
+		dispatch(setAppKey('isAuth', false))
+	}
+
 	return (
 		<View style={styles.container}>
-			<Pressable style={styles.button} onPress={() => navigation.navigate('Login')}>
+			<Pressable style={styles.button} onPress={logout}>
 				<Text>Logout</Text>
 			</Pressable>
 		</View>

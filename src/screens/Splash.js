@@ -5,7 +5,7 @@ import FastImage from 'react-native-fast-image'
 const SplashScreen = ({navigation}) => {
 	useEffect(() => {
 		setTimeout(() => {
-			navigation.navigate('Login')
+			navigation.navigate('RootStack', {screen: 'Login'})
 		}, 2000)
 	}, [])
 	return (

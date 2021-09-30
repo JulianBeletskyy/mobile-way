@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { enableScreens } from 'react-native-screens'
 
 import RootStack from './RootStack'
+import SplashScreen from '../screens/Splash'
 
 enableScreens()
 const Root = createNativeStackNavigator()
@@ -18,6 +19,10 @@ const Navigation = () => {
 					backgroundColor: 'transparent'
 				}
 			}}>
+				<Root.Screen
+	        name="Splash"
+	        component={SplashScreen}
+	        options={{title: ''}} />
 				<Root.Screen
           name="RootStack"
           component={RootStack} />
