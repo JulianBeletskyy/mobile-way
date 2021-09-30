@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>mobileWay</string>
+	<string>Mobile Way</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,8 +20,31 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb453906732596384</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.614936763337-bada5lpqfl7kih9hpuu1lqrfnaqvntnp</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>453906732596384</string>
+	<key>FacebookClientToken</key>
+	<string>4885d01aa083cbd67bbbf1a6f0c28bd3</string>
+	<key>FacebookDisplayName</key>
+	<string>Mobile Way</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -51,20 +74,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleURLTypes</key>
-	<array>
-	  <dict>
-	  <key>CFBundleURLSchemes</key>
-	  <array>
-	    <string>fb453906732596384</string>
-	  </array>
-	  </dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>453906732596384</string>
-	<key>FacebookClientToken</key>
-	<string>4885d01aa083cbd67bbbf1a6f0c28bd3</string>
-	<key>FacebookDisplayName</key>
-	<string>Mobile Way</string>
 </dict>
 </plist>

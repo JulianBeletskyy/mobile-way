@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TextInput, Pressable, Alert } from 'react-nativ
 import { CommonActions } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { LoginManager, Profile } from 'react-native-fbsdk-next'
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin'
 import { useDispatch } from 'react-redux'
 
 import { setAppKey } from '../actions/app'
@@ -32,6 +33,15 @@ const LoginScreen = ({navigation}) => {
     })
 	}
 
+	const googleAuth = () => {
+		GoogleSignin.signIn().then(({user, idToken}) => {
+			Alert.alert(user.name)
+			onSuccessLogin()
+		}).catch(error => {
+			console.log(error)
+		})
+	}
+
 	return (
 		<View style={[styles.container, {paddingBottom: insets.bottom}]}>
 			<View style={{flex: 1, justifyContent: 'center'}}>
@@ -44,6 +54,9 @@ const LoginScreen = ({navigation}) => {
 					<TextInput style={styles.input} />
 				</View>
 			</View>
+			<Pressable style={styles.button} onPress={googleAuth}>
+				<Text>Google</Text>
+			</Pressable>
 			<Pressable style={styles.button} onPress={facebookAuth}>
 				<Text>Facebook</Text>
 			</Pressable>

@@ -2,6 +2,7 @@ import 'react-native-gesture-handler'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Settings } from 'react-native-fbsdk-next'
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -11,6 +12,7 @@ import reducers from './src/reducers'
 import Navigation from './src/navigation'
 
 Settings.initializeSDK()
+GoogleSignin.configure()
 const store = createStore(reducers, applyMiddleware(thunk))
 
 const App = () => {

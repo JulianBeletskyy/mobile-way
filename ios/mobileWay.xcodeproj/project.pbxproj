@@ -12,6 +12,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B93BC5422705E3CC00A8BBE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B93BC5412705E3CC00A8BBE2 /* GoogleService-Info.plist */; };
 		B986207026FB4227009A987A /* libswiftDataDetection.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B986206F26FB4227009A987A /* libswiftDataDetection.tbd */; };
 		B986207226FB4230009A987A /* libswiftFileProvider.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B986207126FB4230009A987A /* libswiftFileProvider.tbd */; };
 		D3124D2BDE762B1409FE3C95 /* libPods-mobileWay-mobileWayTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB1C91BFB435DE61F4756F9 /* libPods-mobileWay-mobileWayTests.a */; };
@@ -43,6 +44,7 @@
 		44AF84EF021D58E9F4618666 /* Pods-mobileWay-mobileWayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileWay-mobileWayTests.debug.xcconfig"; path = "Target Support Files/Pods-mobileWay-mobileWayTests/Pods-mobileWay-mobileWayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		670BD0D0FAA12CB34EDAF295 /* Pods-mobileWay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileWay.release.xcconfig"; path = "Target Support Files/Pods-mobileWay/Pods-mobileWay.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mobileWay/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B93BC5412705E3CC00A8BBE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "mobileWay/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B986206F26FB4227009A987A /* libswiftDataDetection.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftDataDetection.tbd; path = usr/lib/swift/libswiftDataDetection.tbd; sourceTree = SDKROOT; };
 		B986207126FB4230009A987A /* libswiftFileProvider.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftFileProvider.tbd; path = usr/lib/swift/libswiftFileProvider.tbd; sourceTree = SDKROOT; };
 		CB4DACFD1C0C9C4EB6F982C9 /* Pods-mobileWay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileWay.debug.xcconfig"; path = "Target Support Files/Pods-mobileWay/Pods-mobileWay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B93BC5412705E3CC00A8BBE2 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* mobileWay */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* mobileWayTests */,
@@ -250,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93BC5422705E3CC00A8BBE2 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -508,7 +512,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.icit.mobile-way-app";
 				PRODUCT_NAME = mobileWay;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -538,7 +542,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.icit.mobile-way-app";
 				PRODUCT_NAME = mobileWay;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
