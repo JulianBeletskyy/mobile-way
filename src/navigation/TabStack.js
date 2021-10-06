@@ -4,6 +4,8 @@ import { Pressable, View, Text, Keyboard } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import { CommonActions } from '@react-navigation/native'
 
+import { TAB_BAR_HEIGHT } from '../config'
+
 import TabBar from '../components/TabBar'
 import SearchInput from '../components/SearchInput'
 
@@ -53,18 +55,22 @@ const TabStack = ({navigation, route}) => {
 			tabBar={props => <TabBar {...props} />}>
       <Tab.Screen
       	name="Home"
+      	initialParams={{bottomOffset: TAB_BAR_HEIGHT}}
       	component={HomeScreen} />
+    	<Tab.Screen
+      	name="StoreStack"
+      	initialParams={{bottomOffset: TAB_BAR_HEIGHT}}
+      	component={StoreStack} />
       <Tab.Screen
       	name="Map"
       	component={MapScreen} />
       <Tab.Screen
-      	name="StoreStack"
-      	component={StoreStack} />
-      <Tab.Screen
       	name="Calendar"
+      	initialParams={{bottomOffset: TAB_BAR_HEIGHT}}
       	component={CalendarScreen} />
       <Tab.Screen
       	name="Profile"
+      	initialParams={{bottomOffset: TAB_BAR_HEIGHT}}
     		component={ProfileScreen} />
     </Tab.Navigator>
 	)

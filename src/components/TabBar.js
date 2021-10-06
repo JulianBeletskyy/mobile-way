@@ -2,6 +2,8 @@ import React from 'react'
 import { View, StyleSheet, Pressable, Text } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { TAB_BAR_HEIGHT } from '../config'
+
 import { HomeIcon, MapIcon, StoreIcon, CalendarIcon, ProfileIcon } from './icons'
 
 const settings = {
@@ -10,11 +12,11 @@ const settings = {
 		icon: HomeIcon,
 	},
 	Map: {
-		title: 'Map',
+		title: '',
 		icon: MapIcon,
 	},
 	StoreStack: {
-		title: 'Store',
+		title: 'Shops',
 		icon: StoreIcon,
 	},
 	Calendar: {
@@ -52,7 +54,7 @@ const TabBar = ({navigation, state}) => {
 							key={i}
 							onPress={onPress}
 							style={styles.tabItem}>
-							<Icon active={isFocused} />
+							<Icon active={isFocused} style={{marginBottom: 10}} />
 							<Text style={[styles.title, {color: isFocused ? '#3E7D5B' : '#737373' }]}>{settings[route.name].title}</Text>
 						</Pressable>
 					)
@@ -65,7 +67,11 @@ const TabBar = ({navigation, state}) => {
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
-		paddingTop: 15,
+		alignItems: 'center',
+		height: TAB_BAR_HEIGHT,
+		width: '100%',
+		position: 'absolute',
+		bottom: 0,
 	},
 	tabItem: {
 		flex: 1,

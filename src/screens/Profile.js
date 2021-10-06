@@ -5,8 +5,11 @@ import { LoginManager } from 'react-native-fbsdk-next'
 
 import { setAppKey } from '../actions/app'
 
-const ProfileScreen = ({navigation}) => {
+const ProfileScreen = ({navigation, route}) => {
 	const dispatch = useDispatch()
+	const { bottomOffset } = route.params
+
+	console.log(bottomOffset)
 
 	const logout = () => {
 		LoginManager.logOut()
@@ -14,7 +17,7 @@ const ProfileScreen = ({navigation}) => {
 	}
 
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, {paddingBottom: bottomOffset}]}>
 			<Pressable style={styles.button} onPress={logout}>
 				<Text>Logout</Text>
 			</Pressable>
@@ -25,7 +28,7 @@ const ProfileScreen = ({navigation}) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		// backgroundColor: '#fff',
 		paddingLeft: 25,
 		paddingRight: 25,
 	},
