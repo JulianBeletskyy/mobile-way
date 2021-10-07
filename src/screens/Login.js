@@ -24,8 +24,11 @@ const LoginScreen = ({navigation}) => {
 		LoginManager.logInWithPermissions(['email']).then(({isCancelled, ...rest}) => {
       if (!isCancelled) {
       	Profile.getCurrentProfile().then(profile => {
-      		Alert.alert(profile.name)
-      		onSuccessLogin()
+      		if (profile) {
+	      		Alert.alert(profile.name)
+	      		onSuccessLogin()
+      		}
+      		
       	})
       }
     }).catch(error => {

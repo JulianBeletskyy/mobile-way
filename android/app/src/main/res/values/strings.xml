@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">mobileWay</string>
-    <string name="facebook_app_id">453906732596384</string>
-    <string name="facebook_client_token">4885d01aa083cbd67bbbf1a6f0c28bd3</string>
+    <string name="facebook_app_id">1051642712306021</string>
+    <string name="facebook_client_token">b28c868f5439fb4a7ef69fb4d45e293c</string>
     <string name="server_client_id">614936763337-re7rorjr5h6s1jpid2sft7gq6b5kla0i.apps.googleusercontent.com</string>
 </resources>
