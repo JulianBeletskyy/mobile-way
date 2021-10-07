@@ -34,23 +34,27 @@ const TabStack = ({navigation, route}) => {
 			screenOptions={{
 				title: '',
 				headerStyle: {
-					height: 120,
-					backgroundColor: 'lightgrey',
+					elevation: 0,
+          shadowOpacity: 0,
 				},
 				headerLeftContainerStyle: {
-					paddingLeft: 10,
+					paddingLeft: 24,
 				},
 				headerRightContainerStyle: {
-					paddingRight: 10,
+					paddingRight: 24,
 				},
 				headerLeft: () => {
 					return (
 						<View style={{alignItems: 'center'}}>
-							<FastImage source={require('../../assets/img/logo.png')} style={{width: 40, height: 40}} />
-							<Text>CITY CENTER</Text>
+							<Text style={{fontSize: 20, fontWeight: '700'}}>Mobile Way</Text>
 						</View>
 					)
 				},
+				headerRight: () => {
+					return (
+						<SearchInput />
+					)
+				}
 			}}
 			tabBar={props => <TabBar {...props} />}>
       <Tab.Screen

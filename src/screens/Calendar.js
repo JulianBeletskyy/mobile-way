@@ -1,20 +1,7 @@
 import React, { useEffect } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
-import SearchInput from '../components/SearchInput'
-
 const CalendarScreen = ({navigation}) => {
-
-	useEffect(() => {
-		navigation.setOptions({
-			headerRight: () => {
-				return (
-					<SearchInput />
-				)
-			}
-		})
-	}, [])
-
 	return (
 		<View style={styles.container}>
 			<Text>CalendarScreen</Text>

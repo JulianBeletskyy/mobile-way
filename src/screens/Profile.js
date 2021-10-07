@@ -9,8 +9,6 @@ const ProfileScreen = ({navigation, route}) => {
 	const dispatch = useDispatch()
 	const { bottomOffset } = route.params
 
-	console.log(bottomOffset)
-
 	const logout = () => {
 		LoginManager.logOut()
 		dispatch(setAppKey('isAuth', false))

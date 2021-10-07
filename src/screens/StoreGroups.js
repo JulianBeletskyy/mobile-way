@@ -16,13 +16,6 @@ const StoreGroupsScreen = ({navigation}) => {
 				setGroups(res)
 			}
 		})
-		navigation.setOptions({
-			headerRight: () => {
-				return (
-					<SearchInput />
-				)
-			}
-		})
 	}, [])
 
 	const handlePressGroup = group => () => {
