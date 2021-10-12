@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import FastImage from 'react-native-fast-image'
+import LinearGradient from 'react-native-linear-gradient'
 
 const SplashScreen = ({navigation}) => {
 	useEffect(() => {
@@ -9,10 +10,15 @@ const SplashScreen = ({navigation}) => {
 		}, 2000)
 	}, [])
 	return (
-		<View style={styles.container}>
-			<FastImage source={require('../../assets/img/logo.png')} style={styles.logo} />
-			<Text style={styles.title}>CITY CENTER</Text>
-		</View>
+		<LinearGradient colors={['#ACC760', '#0D4A13']} style={styles.container}>
+			<FastImage source={require('../../assets/img/logo.png')} style={[styles.logo, {marginBottom: 10}]} />
+			<View style={{}}>
+				<Text style={[styles.title, {marginBottom: 10}]}>Mobile Way</Text>
+				<Text style={[styles.title, {fontSize: 18, fontWeight: '400'}]}>Smart indoor navigation</Text>
+			</View>
+			<View style={styles.logo}>
+			</View>
+		</LinearGradient>
 	)
 }
 
@@ -24,11 +30,14 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	logo: {
-		width: 100,
-		height: 100,
+		width: 168,
+		height: 154,
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 48,
+		fontWeight: '700',
+		color: '#F2F2F2',
+		textAlign: 'center',
 	}
 })
 
