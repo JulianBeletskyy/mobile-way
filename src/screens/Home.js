@@ -3,6 +3,8 @@ import { View, StyleSheet, Text, ScrollView, useWindowDimensions } from 'react-n
 import FastImage from 'react-native-fast-image'
 import Carousel from 'react-native-snap-carousel'
 
+import { TAB_BAR_HEIGHT } from '../config'
+
 const banner = require('../../assets/img/banner.png')
 const SLIDE_OFFSET = 16
 const SLIDE_WIDTH = 305
@@ -22,7 +24,7 @@ const HomeScreen = ({navigation}) => {
 	}
 
 	return (
-		<ScrollView style={styles.container}>
+		<ScrollView style={styles.container} contentContainerStyle={{paddingBottom: TAB_BAR_HEIGHT}}>
 			<View style={{marginBottom: 18}}>
 				<Carousel
 	        data={[...new Array(5)]}
@@ -37,6 +39,20 @@ const HomeScreen = ({navigation}) => {
 	        sliderWidth={width}
 	        itemWidth={SLIDE_WIDTH+SLIDE_OFFSET+SHADOW_WIDTH*2} />
         </View>
+      <View style={{marginBottom: 18}}>
+      	<Carousel
+	        data={[...new Array(5)]}
+	        layout={'default'}
+	        containerCustomStyle={{paddingLeft: SLIDE_OFFSET}}
+	        loop={false}
+	        firstItem={0}
+	        activeSlideAlignment={'start'}
+	        inactiveSlideScale={1}
+	        inactiveSlideOpacity={1}
+	        renderItem={renderItem}
+	        sliderWidth={width}
+	        itemWidth={SLIDE_WIDTH+SLIDE_OFFSET+SHADOW_WIDTH*2} />
+      </View>
       <View style={{marginBottom: 18}}>
       	<Carousel
 	        data={[...new Array(5)]}

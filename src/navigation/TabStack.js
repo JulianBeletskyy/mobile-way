@@ -46,7 +46,7 @@ const TabStack = ({navigation, route}) => {
 				headerLeft: () => {
 					return (
 						<View style={{alignItems: 'center'}}>
-							<Text style={{fontSize: 20, fontWeight: '700'}}>Mobile Way</Text>
+							<Text style={{fontSize: 20, fontWeight: '700', color: '#087012'}}>Mobile Way</Text>
 						</View>
 					)
 				},
