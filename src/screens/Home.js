@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
 		height: SLIDE_HEIGHT,
 		width: '100%',
 		borderRadius: 8,
+		elevation: 5,
 		shadowOpacity: 0.1,
 		shadowOffset: {width: 0, height: 2},
 		shadowColor: 'rgba(0,0,0,1)',
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.1,
 		shadowColor: 'rgba(0,0,0,1)',
 		shadowRadius: 5,
+		elevation: 5,
 		shadowOffset: {width: 0, height: -5},
 	},
 	sheetHandler: {
