@@ -7,6 +7,7 @@ import SplashScreen from '../screens/Splash'
 import LoginScreen from '../screens/Login'
 import SignUpScreen from '../screens/SignUp'
 import RecoveryScreen from '../screens/Recovery'
+import ProductDetailsScreen from '../screens/ProductDetails'
 
 import TabStack from './TabStack'
 
@@ -20,8 +21,9 @@ const RootStack = ({navigation}) => {
 		<Stack.Navigator
 			screenOptions={{
 				headerShown: false,
-		    drawerType: 'slide',
-				useLegacyImplementation: true,
+		    // drawerType: 'slide',
+		   
+				// useLegacyImplementation: true,
 				cardStyle: {
 					backgroundColor: 'transparent'
 				},
@@ -65,6 +67,17 @@ const RootStack = ({navigation}) => {
 				        }} />
 			      </Stack.Group>
       }
+      <Stack.Screen
+      	name="ProductDetails"
+      	options={{
+      		 presentation: 'transparentModal',
+      		// headerMode: 'screen',
+      		// cardOverlayEnabled: true,
+      		// gestureResponseDistance: {vertical: 300},
+      		// gestureEnabled: true,
+      		// gestureResponseDistance: 500,
+      	}}
+      	component={ProductDetailsScreen} />
 		</Stack.Navigator>
 	)
 }

@@ -10,7 +10,7 @@ import { HomeIcon, MapIcon, StoreIcon, CalendarIcon, ProfileIcon } from './icons
 const AnimatedButton = Animatable.createAnimatableComponent(Pressable)
 
 const settings = {
-	Home: {
+	HomeStack: {
 		title: 'Home',
 		icon: HomeIcon,
 	},

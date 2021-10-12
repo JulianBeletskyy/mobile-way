@@ -10,8 +10,8 @@ import TabBar from '../components/TabBar'
 import SearchInput from '../components/SearchInput'
 
 import StoreStack from './StoreStack'
+import HomeStack from './HomeStack'
 
-import HomeScreen from '../screens/Home'
 import MapScreen from '../screens/Map'
 import CalendarScreen from '../screens/Calendar'
 import ProfileScreen from '../screens/Profile'
@@ -58,9 +58,9 @@ const TabStack = ({navigation, route}) => {
 			}}
 			tabBar={props => <TabBar {...props} />}>
       <Tab.Screen
-      	name="Home"
-      	initialParams={{bottomOffset: TAB_BAR_HEIGHT}}
-      	component={HomeScreen} />
+      	name="HomeStack"
+      	
+      	component={HomeStack} />
     	<Tab.Screen
       	name="StoreStack"
       	initialParams={{bottomOffset: TAB_BAR_HEIGHT}}
