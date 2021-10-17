@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Pressable, View, Text, Keyboard } from 'react-native'
+import { Pressable, View, Text, Keyboard, BackHandler } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import { CommonActions } from '@react-navigation/native'
 
@@ -18,11 +18,12 @@ import ProfileScreen from '../screens/Profile'
 
 const Tab = createBottomTabNavigator()
 
-const TabStack = ({navigation, route}) => {
+const excludeRoutes = ['Login', 'SignUp', 'Splash']
 
+const TabStack = ({navigation, route}) => {
 	useEffect(() => {
-		navigation.dispatch(state => {
-      const routes = state.routes.filter(r => r.name !== 'Login' && r.name !== 'SignUp')
+		navigation.getParent().dispatch(state => {
+      const routes = state.routes.filter(r => !excludeRoutes.includes(r.name))
       const diff = state.routes.length - routes.length
       return CommonActions.reset({...state, routes, index: state.index - diff})
     })

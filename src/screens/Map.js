@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, Text, useWindowDimensions, ScrollView, Alert } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import { useIsFocused } from '@react-navigation/native'
-
-import SearchInput from '../components/SearchInput'
+import { BluetoothStatus } from 'react-native-bluetooth-status'
 
 const image = require('../../assets/img/store_layout.png')
 
 const MapScreen = ({navigation, route}) => {
 	const { width, height } = useWindowDimensions()
 	const isFocused = useIsFocused()
+	// const [btStatus, isPending, setBluetooth] = useBluetoothStatus()
+
+	// console.log(btStatus, isPending, setBluetooth)
 
 	useEffect(() => {
-		navigation.setOptions({
-			headerRight: () => {
-				return (
-					<SearchInput />
-				)
-			}
-		})
-	}, [])
+		if (isFocused) {
+			(async () => {
+				const isEnabled = await BluetoothStatus.state()
+				console.log(isEnabled)
+			})()
+			// setBluetooth(true)
+		}
+	}, [isFocused])
 
 	useEffect(() => {
 		if (isFocused && route.params?.store) {

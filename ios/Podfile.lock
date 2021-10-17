@@ -325,6 +325,8 @@ PODS:
     - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
+  - react-native-webview (11.14.1):
+    - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
     - React-Core/RCTActionSheetHeaders (= 0.65.1)
@@ -487,6 +489,7 @@ DEPENDENCIES:
   - react-native-bluetooth-status (from `../node_modules/react-native-bluetooth-status`)
   - react-native-fbsdk-next (from `../node_modules/react-native-fbsdk-next`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -575,6 +578,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fbsdk-next"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -658,6 +663,7 @@ SPEC CHECKSUMS:
   react-native-bluetooth-status: b1fb68e6158b3ef3886187dbc108b585870ff9aa
   react-native-fbsdk-next: 738143f0a480be0dd301e16c49e4a69fdd219f53
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
+  react-native-webview: 16054e7a26009b7d5944a18e19f450e26bd4c969
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
