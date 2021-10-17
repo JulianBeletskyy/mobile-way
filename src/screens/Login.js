@@ -6,7 +6,8 @@ import { LoginManager, Profile } from 'react-native-fbsdk-next'
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin'
 import { useDispatch } from 'react-redux'
 
-import { setAppKey } from '../actions/app'
+import { setUser } from '../actions/user'
+import User from '../utils/objects/user'
 
 import { FacebookIcon, GoogleIcon } from '../components/icons'
 import MainBtn from '../components/buttons/MainBtn'
@@ -15,21 +16,22 @@ const LoginScreen = ({navigation}) => {
 	const insets = useSafeAreaInsets()
 	const dispatch = useDispatch()
 
-	const onSuccessLogin = () => {
-		dispatch(setAppKey('isAuth', true))
+	const onSuccessLogin = user => {
+		dispatch(setUser(user))
+		navigation.navigate('Profile')
 	}
 
 	const handleLogin = () => {
-		onSuccessLogin()
+		// onSuccessLogin()
 	}
 
 	const facebookAuth = () => {
 		LoginManager.logInWithPermissions(['email']).then(({isCancelled, ...rest}) => {
       if (!isCancelled) {
-      	Profile.getCurrentProfile().then(profile => {
+      	Profile.getCurrentProfile().then((profile, ...rest) => {
       		if (profile) {
-	      		Alert.alert(profile.name)
-	      		onSuccessLogin()
+      			const user = new User(profile.userID, profile.email, profile.name, profile.imageURL)
+	      		onSuccessLogin(user)
       		}
       		
       	})
@@ -40,9 +42,9 @@ const LoginScreen = ({navigation}) => {
 	}
 
 	const googleAuth = () => {
-		GoogleSignin.signIn().then(({user, idToken}) => {
-			Alert.alert(user.name)
-			onSuccessLogin()
+		GoogleSignin.signIn().then(res => {
+			const user = new User(res.user.id, res.user.email, `${res.user.givenName} ${res.user.familyName}`, res.user.photo)
+			onSuccessLogin(user)
 		}).catch(error => {
 			console.log(error)
 		})

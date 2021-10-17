@@ -25,22 +25,29 @@ const RootStack = ({navigation}) => {
 			<Stack.Screen
         name="TabStack"
         component={TabStack}
-        options={{
-        	title: '',
-				}} />
+        options={{title: ''}} />
     	<Stack.Screen
     		name="WebView"
-    		options={{
-      		 presentation: 'modal',
-      	}}
+    		options={{presentation: 'modal'}}
     		component={WebViewScreen} />
-    	<Stack.Group screenOptions={{
-				headerShown: false,
-				gestureEnabled: false}}>
+    	<Stack.Group screenOptions={({navigation}) => {
+    		return {
+					headerShown: true,
+					gestureEnabled: false,
+					headerShadowVisible: false,
+					headerLeft: props => {
+        		return (
+        			<TouchableOpacity onPress={() => navigation.goBack()} {...props}>
+        				<ChevronLeftIcon width={15} />
+        			</TouchableOpacity>
+      			)
+        	}
+				}
+    	}}>
       	<Stack.Screen
 	        name="Login"
 	        component={LoginScreen}
-	        options={{title: 'Login', headerLeft: null}} />
+	        options={{title: 'Login'}} />
 	      <Stack.Screen
 	        name="SignUp"
 	        component={SignUpScreen}
@@ -48,20 +55,7 @@ const RootStack = ({navigation}) => {
         <Stack.Screen
 	        name="Recovery"
 	        component={RecoveryScreen}
-	        options={({navigation}) => {
-	        	return {
-		        	title: '',
-		        	headerShadowVisible: false,
-		        	headerShown: true,
-		        	headerLeft: props => {
-		        		return (
-		        			<TouchableOpacity onPress={() => navigation.goBack()} {...props}>
-		        				<ChevronLeftIcon />
-		        			</TouchableOpacity>
-	        			)
-		        	}
-		        }
-	        }} />
+	        options={{title: ''}} />
       </Stack.Group>
 		</Stack.Navigator>
 	)
