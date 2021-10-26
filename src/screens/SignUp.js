@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-import { View, StyleSheet, Text, TextInput, Pressable, Alert } from 'react-native'
-import { CommonActions } from '@react-navigation/native'
+import React from 'react'
+import { View, StyleSheet, Text, TextInput, Pressable } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { LoginManager, Profile } from 'react-native-fbsdk-next'
-import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin'
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { useDispatch } from 'react-redux'
+import { useTheme } from '@react-navigation/native'
 
 import { setUser } from '../actions/user'
 import User from '../utils/objects/user'
@@ -15,6 +15,7 @@ import MainBtn from '../components/buttons/MainBtn'
 const SignUpScreen = ({navigation}) => {
 	const insets = useSafeAreaInsets()
 	const dispatch = useDispatch()
+	const { colors } = useTheme()
 
 	const onSuccessLogin = user => {
 		dispatch(setUser(user))
@@ -53,7 +54,7 @@ const SignUpScreen = ({navigation}) => {
 	return (
 		<View style={[styles.container, {paddingBottom: insets.bottom, paddingTop: insets.top}]}>
 			<View style={{justifyContent: 'center', flex: 1}}>
-				<Text style={styles.title}>Регистрация</Text>
+				<Text style={[styles.title, {color: colors.primary}]}>Регистрация</Text>
 				<View style={{width: '100%', marginBottom: 15}}>
 					<TextInput
 						placeholderTextColor="#828282" 
@@ -85,19 +86,19 @@ const SignUpScreen = ({navigation}) => {
 					<View style={styles.divider} />
 				</View>
 				<View style={{flexDirection: 'row', alignItems: 'center'}}>
-					<Pressable style={[styles.socialButton, {marginRight: 5}]} onPress={googleAuth}>
+					<Pressable style={[styles.socialButton, {marginRight: 5, borderColor: colors.primary}]} onPress={googleAuth}>
 						<GoogleIcon style={{marginRight: 8}} />
-						<Text style={{color: '#087012'}}>Google</Text>
+						<Text style={{color: colors.primary}}>Google</Text>
 					</Pressable>
-					<Pressable style={[styles.socialButton, {marginLeft: 5}]} onPress={facebookAuth}>
+					<Pressable style={[styles.socialButton, {marginLeft: 5, borderColor: colors.primary}]} onPress={facebookAuth}>
 						<FacebookIcon style={{marginRight: 8}} />
-						<Text style={{color: '#087012'}}>Facebook</Text>
+						<Text style={{color: colors.primary}}>Facebook</Text>
 					</Pressable>
 				</View>
 				<Text style={[styles.description, {marginVertical: 20}]}>Уже есть аккаут?</Text>
-				<Pressable  style={[styles.socialButton, {flex: 0}]} onPress={() => navigation.navigate('Login')}>
-					<Text style={{textAlign: 'center', color: '#087012'}}>Войти</Text>
-				</Pressable>
+				<MainBtn reverse style={[styles.socialButton, {flex: 0}]} onPress={() => navigation.navigate('Login')}>
+					Войти
+				</MainBtn>
 			</View>
 		</View>
 	)
@@ -145,7 +146,6 @@ const styles = StyleSheet.create({
 	},
 	socialButton: {
 		flexDirection: 'row',
-		borderColor: '#087012',
 		borderWidth: 1,
 		height: 40,
 		flex: 1,

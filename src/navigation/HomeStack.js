@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { TAB_BAR_HEIGHT } from '../config'
 
 import HomeScreen from '../screens/Home'
-import ProductDetailsScreen from '../screens/ProductDetails'
 
 const Stack = createNativeStackNavigator()
 

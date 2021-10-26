@@ -1,26 +1,28 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import FastImage from 'react-native-fast-image'
+import { useTheme } from '@react-navigation/native'
 
 import MainBtn from '../buttons/MainBtn'
 import Rate from '../Rate'
 
 const ProductDetailsCard = ({title, description, group, image, rate, onPressSite, onPressStore}) => {
+	const { colors } = useTheme()
 	return (
 		<View style={styles.container}>
 			<Text style={styles.shopTitle}>{title}</Text>
 			<FastImage source={image} style={styles.bannerImage} />
 			<View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
 				<View style={{flex: 1}}>
-					<Text style={styles.productTitle}>{title}</Text>
+					<Text style={[styles.productTitle, {color: colors.primary}]}>{title}</Text>
 					<View style={{marginBottom: 5}}>
 						<Rate rate={rate} />
 					</View>
-					<Text style={styles.groupTitle}>{group}</Text>
+					<Text style={[styles.groupTitle, {color: colors.primary}]}>{group}</Text>
 				</View>
 				<View style={{flex: 1, alignItems: 'flex-end'}}>
-					<Text  style={styles.productTitle}>2 мин</Text>
-					<Text style={styles.groupTitle}>130 м</Text>
+					<Text  style={[styles.productTitle, {color: colors.primary}]}>2 мин</Text>
+					<Text style={[styles.groupTitle, {color: colors.primary}]}>130 м</Text>
 				</View>
 			</View>
 			<Text style={styles.productDescription} numberOfLines={3}>{description}</Text>

@@ -2,6 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Pressable, Text } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import * as Animatable from 'react-native-animatable'
+import { useTheme } from '@react-navigation/native'
 
 import { TAB_BAR_HEIGHT } from '../config'
 
@@ -37,6 +38,7 @@ const settings = {
 
 const TabBar = ({navigation, state}) => {
 	const insets = useSafeAreaInsets()
+	const { colors } = useTheme()
 	const isTransparent = state.routes[state.index].name === 'Map'
 	return (
 		<View style={[styles.container, {paddingBottom: insets.bottom, backgroundColor: isTransparent ? 'transparent' : '#fff'}]}>
@@ -64,8 +66,8 @@ const TabBar = ({navigation, state}) => {
 							transition="translateY"
 							useNativeDriver={true}
 							style={[styles.tabItem, isFocused ? settings[route.name].styles : null]}>
-							<Icon active={isFocused} style={{marginBottom: 5}} />
-							<Text style={[styles.title, {color: isFocused ? '#3E7D5B' : '#737373' }]}>{settings[route.name].title}</Text>
+							<Icon active={isFocused} style={{marginBottom: 5}} color={colors.primary} />
+							<Text style={[styles.title, {color: isFocused ? colors.primary : '#737373' }]}>{settings[route.name].title}</Text>
 						</AnimatedButton>
 					)
 				})

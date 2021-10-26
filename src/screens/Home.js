@@ -1,8 +1,9 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import { View, StyleSheet, Text, ScrollView, useWindowDimensions, Pressable, Platform, Linking } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import Carousel from 'react-native-snap-carousel'
 import BottomSheet from '@gorhom/bottom-sheet'
+import { useTheme } from '@react-navigation/native'
 
 import { TAB_BAR_HEIGHT } from '../config'
 import { randomIntFromInterval } from '../utils/helpers'
@@ -57,6 +58,7 @@ const SHADOW_WIDTH = 5
 
 const HomeScreen = ({navigation, route}) => {
 	const { width } = useWindowDimensions()
+	const { colors } = useTheme()
 	const { bottomOffset } = route.params
 
 	const bottomSheetRef = useRef(null)
@@ -85,9 +87,9 @@ const HomeScreen = ({navigation, route}) => {
 					<FastImage source={item.image} style={styles.bannerImage} />
 					<View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 5}}>
 						<View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 3}}>
-							<Text style={{color: '#087012', fontSize: 18, marginRight: 5}}>{item.title}</Text>
+							<Text style={{color: colors.primary, fontSize: 18, marginRight: 5}}>{item.title}</Text>
 							<StarFillIcon />
-							<Text style={{marginLeft: 5, color: '#087012',}}>{item.rate.toFixed(2)}</Text>
+							<Text style={{marginLeft: 5, color: colors.primary}}>{item.rate.toFixed(2)}</Text>
 						</View>
 						<View style={{flexDirection: 'row', alignItems: 'center'}}>
 							<Text style={{color: '#828282', fontSize: 12}}>{item.group}</Text>

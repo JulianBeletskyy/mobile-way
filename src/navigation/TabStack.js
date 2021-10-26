@@ -34,6 +34,7 @@ const TabStack = ({navigation, route}) => {
 			initialRouteName={'Home'}
 			screenOptions={{
 				title: '',
+				headerTransparent: false,
 				headerStyle: {
 					elevation: 0,
           shadowOpacity: 0,
@@ -47,7 +48,7 @@ const TabStack = ({navigation, route}) => {
 				headerLeft: () => {
 					return (
 						<View style={{alignItems: 'center'}}>
-							<Text style={{fontSize: 20, fontWeight: '700', color: '#087012'}}>Mobile Way</Text>
+							<Text style={{fontSize: 20, fontWeight: '700', color: '#0077FF'}}>Mobile Way</Text>
 						</View>
 					)
 				},
@@ -60,7 +61,6 @@ const TabStack = ({navigation, route}) => {
 			tabBar={props => <TabBar {...props} />}>
       <Tab.Screen
       	name="HomeStack"
-      	
       	component={HomeStack} />
     	<Tab.Screen
       	name="StoreStack"
@@ -68,6 +68,7 @@ const TabStack = ({navigation, route}) => {
       	component={StoreStack} />
       <Tab.Screen
       	name="Map"
+				options={{headerTransparent: true}}
       	component={MapScreen} />
       <Tab.Screen
       	name="Calendar"
